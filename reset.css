@@ -1,0 +1,46 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* responsive images/videos */
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+/* make headings wrap better*/
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+/* Optimizing readability for text blocks. 
+Ch(aracter lenght is thought to be optimal between 45-75ch in lenght. 
+Clamped it to better optimized and make page more fluid. A case can be made, and sometimes the better option, to vary to line width at set intervals with media queries, in reality what optimal depends and eventually decided through testing). 
+*/
+p, li, figcaption {
+    text-wrap: pretty;
+    max-width: 55;
+}
+
+/* for container queries, landmarks as containers */
+body > :is(header, footer),
+main {
+    container-type: inline-size;
+}
+
+/* min body height */
+body {
+    min-height: 100vh;
+}
+
+/* remove list style but keep it as list for Safari browser - use with <ul role="list"> */
+[role='list'] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

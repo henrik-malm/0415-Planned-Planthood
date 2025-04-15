@@ -1,0 +1,654 @@
+@import url('variables.css');
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', monospace;
+    background-color: white;
+    color:black;
+}
+
+
+
+
+/* ========================================== 
+------ Content grid                    ------ 
+========================================== */
+
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr min(1016px, 100%) 1fr; /*adjusting for 16px x 2 padding on the sides, counting from 980px */
+    min-height: 100vh;
+  }
+  
+  .grid-wrapper > * {
+    grid-column: 2;
+    padding: 1rem;
+
+  }
+  
+  .grid-wrapper > .full-bleed {
+    grid-column: 1 / -1;
+    width: 100%;
+
+  }
+  
+  .hero-section__container,
+  .plant-grid-section .container {
+    max-width: 1016px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+/* ========================================== 
+------ Section 1: Header               ------ 
+========================================== */
+
+
+.site-header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+
+    text-transform: uppercase;
+    font-size: 2em;
+    color: var(--clr-green-400);
+
+    .logo {
+        flex: 3;
+        gap:0.5em;
+        width: 1rem;
+        display:flex;
+        
+        }
+
+
+        .logo__icon {
+            width: 4rem;
+            color: var(--clr-green-400);
+        }
+
+
+        .logo__txt{
+            width:min-content;
+            line-height: 1;
+        }
+
+
+        .top-nav {
+            flex:5; /* as a flex item to .topNaviation - taking up total of 6/7th */
+        
+        }
+
+            .top-nav__list{ 
+            list-style-type: none;
+            display:flex;
+            justify-content: space-around;
+            }
+
+            a {
+                text-decoration: none;  /*should be ok for keyboard focus since focus has visual change in state*/ 
+                color: var(--clr-green-400);
+                padding: 1rem 2rem; 
+                font-size: 1,5rem; 
+
+            }
+            
+            a:hover, a:focus {
+                    background-color: var(--clr-green-400);
+                    color:white;
+                    transition: 0.5s ease-in-out;
+                }
+}
+
+/* ========================================== 
+------ ImageGrid                       ------ 
+========================================== */
+
+.hero-section-imggrid {
+    background-color: #dde6e0;
+
+    display: grid;
+    grid-template-columns: inherit; 
+
+}
+
+.hero-section__container {
+    display: flex;
+    flex-direction: column;
+    grid-column:2/3;
+}
+
+.hero-section__content {
+    
+    font-size: 2rem;
+    text-align: center;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin: 2rem;
+  
+
+}
+
+    h2 {
+        font-size: var(--fs-900);
+        font-weight:var(--fw-600)
+    }
+
+.test{
+    aspect-ratio: 1.75/1 !important;
+}
+
+.hero-section__img-grid { 
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    padding: .75rem;
+    border:1px solid lightgrey;
+    background-color: white;
+
+
+    box-shadow: var(--border-shadow);
+}
+
+.hero-section__img-grid img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+.hero-section__img-grid img:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+.hero-section__img-grid img:nth-child(2) {
+    grid-column: 3 / span 1;
+    grid-row: 1;
+}
+
+.hero-section__img-grid img:nth-child(3) {
+    grid-column: 4 / span 1;
+    grid-row: 1;
+}
+
+.hero-section__img-grid img:nth-child(4) {
+    grid-column: 5 / span 2;
+    grid-row: 1;
+}
+
+.hero-section__img-grid img:nth-child(5) {
+    grid-column: 3 / span2;
+    grid-row: 2;
+}
+
+.hero-section__img-grid img:nth-child(6) {
+    grid-column: 5 / span2;
+    grid-row: 2;
+}
+
+
+
+/* ==========================================
+------ Section 3 - NewsLetter (Final Version) ------
+========================================== */
+
+
+
+.newsletter-wrapper {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    margin: 2.5rem auto;
+    width: 75%;
+}
+
+.newsletter-wrapper__content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+}
+
+.newsletter-wrapper__heading {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-700);
+    line-height: 1.3;
+}
+
+/* --- Styles for the form container --- */
+.newsletter-wrapper__form {
+    display: flex;
+    border: 1px solid var(--clr-neutral-200);
+    border-radius: 3rem;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* --- Styles for the email input --- */
+.newsletter-wrapper__input {
+    flex-grow: 1;
+    
+    font-size: var(--fw-400);
+    padding: 0.8em 1.2em;
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+    text-align: center;
+    min-width: 150px;
+}
+
+
+.newsletter-wrapper__button {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-400);
+    text-transform: uppercase;
+    padding: 0.8rem 1.25rem;
+    border: none; 
+    border-radius: 3rem; /* rounding edges */
+    margin: 3px; /* gap to border of box*/
+
+    color: white;
+    background-color: var(--clr-green-400);
+    
+    cursor: pointer;
+   
+}
+
+.newsletter-wrapper__button:hover {
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-green-400);
+    border: 1px solid var(--clr-green-400);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-400);
+    transition: 0.3s ease-in-out;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
+
+/* --- Icon with background--- */
+.newsletter-icon-area {
+    flex: 1;
+    height: 50%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.newsletter-icon-circle {
+    background-color: #16a085;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-icon-circle svg {
+    width: 50%;
+    fill: white;
+}
+
+
+/* ========================================== 
+------ Section 4 - Cards               ------ 
+========================================== */
+
+
+
+
+.plant-grid-section {
+    background-color:lightgray;
+    
+    display: grid;
+    grid-template-columns: inherit; 
+  }
+
+  .plant-grid-container {
+    grid-column: 2/3;
+  }
+  
+  .plant-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 240px));
+    gap: 1rem;
+    
+  }
+
+
+.cards {
+    background-color: #fff;
+    box-shadow: var(--border-shadow);
+    padding: 1rem;
+
+    display:grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    gap: 1.25rem;
+
+  }
+  
+  
+
+  .imgcontainer {
+    aspect-ratio: 0.8 !important;
+    width: 100%; 
+  }
+
+  .imgcontainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: center center;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+  
+  .cards h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  
+  .textc {
+    font-size: 1.2rem;
+  }
+  
+  .card-author {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+
+  }
+  
+  .card-author img {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+  
+  .author-name {
+    font-weight: 600;
+    color: var(--clr-text-dark);
+  }
+  
+  .post-date {
+    color: var(--clr-text-muted);
+  }
+
+  .label-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 0 6px 6px 0;        
+    text-decoration: none;     
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.5em 1em;
+    font-weight: 600;
+    margin:2px;
+
+    text-transform: uppercase;
+    color:white;
+    border-radius: 20px;
+      
+  }
+ 
+/* TAG colering*/
+  .tag-robust { background-color: var(--clr-robust); }
+  .tag-green { background-color: var(--clr-green);}
+  .tag-flower { background-color: var(--clr-flower);} 
+  .tag-colorful { background-color: var(--clr-colorful); }
+  .tag-sunloving { background-color: var(--clr-sunloving); }
+  .tag-air { background-color: var(--clr-air); }
+  .tag-decorative { background-color: var(--clr-decorative); }
+  .tag-edible { background-color: var(--clr-edible); }
+  .tag-easy { background-color: var(--clr-easy); }
+  .tag-fragrant { background-color: var(--clr-fragrant); }
+  .tag-fast { background-color: var(--clr-fast); }
+
+
+
+  /* ========================================== 
+------ Section 5              ------ 
+========================================== */
+
+.tidigare-odlingar {
+    color:#333;
+
+    .container {
+        display:flex;
+        flex-direction: row;
+        column-gap: 3rem;
+        
+        width: 75%;
+        margin: 2.5rem auto;
+    }
+
+
+
+    .icon-wrapper {
+        flex: initial;
+        background-color: var(--clr-green-400);
+        border-radius: 50%;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bild {
+        width: 50%;
+    }
+
+
+   .content-wrapper {
+        flex: 1;
+
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap:1rem;
+   }
+
+   h3 {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-600);
+   }
+
+   p {
+    font-size: var(--fs-500);
+   }
+
+   .btn {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-600);
+ 
+    padding: 0.8em 1.2em;
+    border-radius: 2rem;
+
+    border: none;
+    align-self: flex-end;
+
+    color: white;
+    background-color: var(--clr-green-400);
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+   }
+
+   .btn:hover {
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-green-400);
+    border: 1px solid var(--clr-green-400);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-400);
+    transition: 0.5s ease-in-out;
+}
+}
+
+
+
+
+
+/* ========================================= */
+/* === Section 6: Footer                 === */
+/* ========================================= */
+
+
+
+
+
+    .footer{
+        background: var(--clr-green-400);
+
+        display:grid;
+        grid-template-columns: inherit;
+    
+
+        
+        .content-wrapper {
+            grid-column: 2/3;
+        }
+      
+
+
+        .container {
+            display:flex;
+            flex-direction: row;
+            width:100%;
+            color:rgb(255, 255, 255);
+            padding: 2rem;
+
+        }
+
+/* ================
+--- Left side ---- 
+================ */
+
+
+    .left-side{
+        flex:1;
+        align-items: flex-start;
+
+        display:flex;
+        flex-direction: column;
+        row-gap: 1rem;
+
+    }
+
+    .logo-footer {
+        display:flex;
+        gap: 0.5em;
+    }
+    .logo__icon { 
+        width: 7%;
+    }
+
+    .logo__txt {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .text {
+        font-size: 1.2rem;
+        width: 45ch;
+    }
+
+    .contact-information li {
+        font-size: 1.0rem;
+        display:flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-information li:hover{
+        text-decoration: underline;
+    }
+
+  
+
+  
+
+    
+
+/* ================
+--- right side ---- 
+================ */
+
+    .right-side{
+        flex:1;
+        align-items: flex-end;
+        
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+    }
+
+    .right-side a {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color:white;
+        cursor: pointer;
+    }
+
+    .right-side a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+@media (max-width: 780px) {
+
+    .tidigare-odlingar {
+        flex-direction: column;
+    }
+    .bild {
+        width: 50%;
+    }
+
+
+}
